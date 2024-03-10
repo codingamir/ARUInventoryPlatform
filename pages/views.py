@@ -1,25 +1,32 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.conf import settings
+from django.shortcuts import redirect
 
-from .models import User
-
-# Create your views here.
+import inventory_portal
 
 
 def home(request):
-    return render(request, "pages/home.html", {})
+    if not request.user.is_authenticated:
+        return redirect("login?next={request.path}")
+    return render(request, "pages/home.html", {"user_name": request.user.username})
 
-def login(request):
+def login_view(request):
     return render(request, "pages/registration/login.html")
 
 def validateAndRedirect(request):
     email = request.POST.get("email")
     password = request.POST.get("password")
 
-    if email == "" or password == "":
-        return render(request, "pages/registration/login.html", {"invalid_details": "username or password cannot be empty!"})
-    
-    user = User.objects.filter(email = email, password = password).first()
+    user = authenticate(request, username=email, password=password)
+
 
     if user == None:
         return render(request, "pages/registration/login.html", {"invalid_details": "username or password is invalid!"})
-    return render(request, "pages/home.html")
+    login(request, user)
+
+    nxt = request.POST.get("next")
+
+    if nxt is not None:
+        return redirect(nxt)
+    return redirect("home")
