@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    <style>
+        .productDetail-bg {
+            background-image: url("{%static 'images/tutorial-city.jpg' %}");
+            background-position: center;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+{% block home %}
+
+<main>
+    <!-- <div class="productDetail-bg">
+        <form method="post">
+            {% csrf_token %}
+            {{ product }}
+            <button type="submit">Submit</button>
+        </form>
+    </div> -->
+
+    <div class="bg-white">
+        <div
+            class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{product.product_name.value}} Details</h2>
+                <a href="updateProduct?id={{product.id}}">
+                    <button style="background-color: rgb(59 130 246);"
+                        class="px-6 bg-blue-500 hover:bg-blue-700 text-gray-700 font-bold py-2 px-4 rounded-full">
+                        Update Product Info
+                    </button>
+                </a>
+                <p class="mt-4 text-gray-500">{{product.description.value}}</p>
+
+                <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                    <div class="border-t border-gray-200 pt-4">
+                        <dt class="font-medium text-gray-900">Service Name</dt>
+                        <dd class="mt-2 text-sm text-gray-500">{{product.product_name.value}}</dd>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <dt class="font-medium text-gray-900">Service Type</dt>
+                        <dd class="mt-2 text-sm text-gray-500">{{product.type.value}}</dd>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <dt class="font-medium text-gray-900">Vendor</dt>
+                        <dd class="mt-2 text-sm text-gray-500">Vendor link goes here</dd>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <dt class="font-medium text-gray-900">Finish</dt>
+                        <dd class="mt-2 text-sm text-gray-500">Hand sanded and finished with natural oil</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div>
+                {% include "../../components/product/displayProductCapability.html" %}
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock %}

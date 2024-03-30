@@ -1,0 +1,106 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+    {% tailwind_css %}
+    <meta charset="utf-8">
+    <title>{% block title %}My Personal Portfolio{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="h-full">
+
+
+<!-- <main class="flex justify-center items-center px-16 py-20 text-sm leading-5 bg-slate-100 max-md:px-5">
+    <div class="flex flex-col justify-center p-20 mt-28 max-w-full bg-white border border-solid border-zinc-200 w-[680px] max-md:px-5 max-md:mt-10">
+      <h1 class="text-5xl font-bold leading-10 text-center text-zinc-800 max-md:max-w-full">Welcome Back</h1>
+      <p class="mt-2 text-lg text-center text-zinc-800 max-md:max-w-full">Please log in to continue</p>
+      <label for="username" class="mt-12 text-zinc-800 max-md:mt-10 max-md:max-w-full">Username</label>
+      <div class="justify-center px-4 py-3.5 mt-2 text-base whitespace-nowrap border-b border-solid bg-slate-100 border-neutral-300 text-zinc-500 max-md:max-w-full">
+        <input type="username" id="username" placeholder="Enter username" class="bg-transparent outline-none w-full" />
+      </div>
+      <label for="password" class="mt-4 text-zinc-800 max-md:max-w-full">Password</label>
+      <div class="flex gap-2 px-4 py-3 mt-2 text-base whitespace-nowrap border-b border-solid bg-slate-100 border-neutral-300 text-zinc-500 max-md:flex-wrap">
+        <input type="password" id="password" placeholder="Enter Password" class="flex-auto bg-transparent outline-none max-md:max-w-full" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/32537744ce5efd6758f6f802778fe54af9e49e7354c870b39a3823466088512c?apiKey=478704174e0442e5be8fcc36dff2ad32&" alt="Password visibility icon" class="shrink-0 w-6 aspect-square" />
+      </div>
+      <p class="mt-1 text-xs text-zinc-500 max-md:max-w-full">It must be a combination of minimum 8 letters, numbers, and symbols.</p>
+      <div class="flex gap-4 mt-4 whitespace-nowrap max-md:flex-wrap">
+        <div class="flex gap-2.5 px-0.5 text-zinc-800">
+          <div class="shrink-0 my-auto w-4 h-4 border border-solid border-neutral-900"></div>
+          <label for="remember" class="grow">Remember me</label>
+          <input type="checkbox" id="remember" class="visually-hidden" />
+        </div>
+        <a href="#" class="flex-auto text-right text-blue-950">Forgot Password?</a>
+      </div>
+      <button class="justify-center items-center px-16 py-4 mt-4 text-base font-medium tracking-wide leading-4 text-white whitespace-nowrap bg-blue-600 border-2 border-blue-600 border-solid max-md:px-5 max-md:max-w-full">Log In</button>
+      <hr class="shrink-0 mt-6 h-px border border-solid bg-zinc-200 border-zinc-200 max-md:max-w-full" />
+      <p class="mt-6 text-center text-blue-950 max-md:max-w-full">No account yet? <a href="#" class="underline">Sign Up</a></p>
+    </div>
+  </main> -->
+  <!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-white">
+  <body class="h-full">
+  ```
+-->
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+    </div>
+  
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form class="space-y-6" action="validate" method="POST">
+        {% csrf_token %}
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+  
+        <div>
+          <div class="flex items-center justify-between">
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            <div class="text-sm">
+              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+            </div>
+          </div>
+          <div class="mt-2">
+            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+  
+        <div>
+          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+        </div>
+      </form>
+  
+      <p class="mt-10 text-center text-sm text-gray-500">
+        Not a member?
+        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
+      </p>
+    </div>
+  </div>
+  
+</body>
+
+</html>
