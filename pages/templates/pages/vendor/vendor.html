@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+{% block home %}
+
+<head>
+    <style>
+        .company-bg-img {
+            background-image: url("{%static vendor.company_background_picture %}");
+            background-position: center -80px;
+        }
+    </style>
+</head>
+
+<header class="shadow">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 class="tracking-wide text-gray-1000 text-4xl font-bold">
+            {{vendor.company_name}}
+        </h1>
+    </div>
+</header>
+
+<main>
+    <div class="mx-auto max-w-7xl px-20 py-12 sm:px-6 lg:px-8">
+        <div class="flow-root">
+            <div class="float-left">
+                <h3 class="text-base font-semibold leading-7 text-gray-900">Vendor Information</h3>
+                <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
+            </div>
+            <div class="float-right">
+                <a href="updateVendor?id={{vendor.id}}">
+                    <button style="background-color: rgb(59 130 246);"
+                        class="px-6 bg-blue-500 hover:bg-blue-700 text-gray-700 font-bold py-2 px-4 rounded-full">
+                        Update Vendor Info
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-1 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Vendor website link</dt>
+                    <a href="{{vendor.company_url}}">
+                        <dd class="text-sm text-gray-700">
+                            {{vendor.company_url}}
+                        </dd>
+                    </a>
+
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Established</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-1 sm:mt-0">{{vendor.established}}</dd>
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Employees Count</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{vendor.employees_count}}
+                    </dd>
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Do they provide internal profession
+                        services?</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {{vendor.internal_professinal_service}}</dd>
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Last Demo</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{vendor.last_demo}}</dd>
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Last Review</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{vendor.last_review}}</dd>
+                </div>
+
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">About</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {{vendor.description}}
+                    </dd>
+                </div>
+                <div class="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Attachments</dt>
+                    <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                <div class="flex w-0 flex-1 items-center">
+                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                        <span class="truncate font-medium">addepar_profile_pic.png</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4 flex-shrink-0">
+                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                </div>
+                            </li>
+                            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                <div class="flex w-0 flex-1 items-center">
+                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                        <span class="truncate font-medium">addepar_profile_pic.png</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4 flex-shrink-0">
+                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock %}
