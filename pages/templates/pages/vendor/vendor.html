@@ -118,6 +118,44 @@
                 </div>
             </dl>
         </div>
+
+
+        <header class="bg-gray">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{vendor.company_name}}'s Services</h1>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {% if products|length == 0 %}
+            <div class="text-center">
+                <span>
+                    No services to show for this vendor.
+                </span>
+                <a href="#" class="no-underline hover:underline ...">
+                    Try Adding one.
+                </a>
+            </div>
+            {% endif %}
+            {% for product in products %}
+            <a href="productDetail?id={{product.id}}" class="group" style="text-decoration:none" >
+                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                    {% if product.image %}
+                    <img src="{% static product.image.url %}"
+                        class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    {% else %}
+                    <img src="{{vendor.company_dispaly_picture.path}}"
+                        class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    {% endif %}
+
+                </div>
+                <h3 class="mt-4 text-sm text-gray-700">{{product.product_name}}</h3>
+                <p class="mt-1 text-lg font-medium text-gray-900">Type: {{product.type}}</p>
+                <span class="mt-1 text-sm font-medium text-gray-600 truncate">Description: {{product.description}}</span>
+            </a>
+            {% endfor %}
+
+        </div>
     </div>
 
 </main>
