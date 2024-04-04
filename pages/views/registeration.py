@@ -27,3 +27,7 @@ def validateAndRedirect(request):
     if nxt is not None:
         return redirect(nxt)
     return redirect("home")
+
+
+def contactUs(request):
+    return render(request, "pages/BecomeVendor/contactUs.html")
