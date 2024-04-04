@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    <style>
+        .productDetail-bg {
+            background-image: url("{%static 'images/tutorial-city.jpg' %}");
+            background-position: center;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+{% block home %}
+
+<main>
+    <!-- <div class="productDetail-bg">
+        <form method="post">
+            {% csrf_token %}
+            {{ product }}
+            <button type="submit">Submit</button>
+        </form>
+    </div> -->
+
+    <div class="bg-white">
+        <div
+            class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+
+            <div>
+                {% include "../../components/product/editProductCapability.html" %}
+            </div>
+            <br><br><br>
+            <div>
+                {% include "../../components/product/editProductCapability.html" %}
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
