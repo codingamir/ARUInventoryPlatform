@@ -10,7 +10,6 @@ urlpatterns = [
     path("logout", views.custom_logout, name='logout'),
     path("validate", views.validateAndRedirect, name='validate'),
     path("dashboard", views.home, name='home'),
-    path("products", views.products, name='products'),
     path("productDetail", views.productDetail, name='products'),
     path("vendor", views.vendor, name='vendor'),
     path("updateVendor", views.updateVendor, name='vendor'),

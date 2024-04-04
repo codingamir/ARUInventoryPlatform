@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'tailwind',
+    'theme',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
 ]
 
 ROOT_URLCONF = "inventory_portal.urls"
@@ -115,8 +120,13 @@ STATICFILES_DIRS = [
     BASE_DIR / "pages/static/"
     ]
 
-STATIC_URL = "static/"
+LOGIN_URL = "login/"
+TAILWIND_APP_NAME = 'theme'
 
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 # Internationalization
